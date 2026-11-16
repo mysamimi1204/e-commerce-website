@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>little stories. — Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #faf8f5; --card-bg: #ffffff; --text-main: #2d2a26;
+            --text-muted: #6b655e; --primary: #c86d51; --accent-blue: #3d6870; --border-color: #e8e3dc;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        h1, h2, h3, .logo { font-family: 'Playfair Display', serif; }
+        header { background-color: var(--bg-color); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+        header > div { max-width: 1100px; margin: 0 auto; padding: 1.2rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.5rem; font-weight: 700; text-decoration: none; color: var(--text-main); }
+        .logo span { color: var(--primary); font-style: italic; }
+        nav { display: flex; gap: 1.5rem; }
+        nav a { text-decoration: none; color: var(--text-muted); font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+        nav a:hover, nav a[aria-current="page"] { color: var(--primary); }
+        main { flex: 1; max-width: 1100px; width: 100%; margin: 0 auto; padding: 3rem 2rem; }
+        .hero { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; margin-bottom: 5rem; }
+        .hero-content span { display: inline-block; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--primary); margin-bottom: 1rem; font-weight: 600; }
+        .hero-content h1 { font-size: 3.2rem; line-height: 1.2; margin-bottom: 1.2rem; }
+        .hero-content h1 em { color: var(--accent-blue); font-style: italic; }
+        .hero-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 2rem; }
+        .hero-buttons { display: flex; gap: 1rem; }
+        .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 50px; text-decoration: none; font-size: 0.95rem; font-weight: 500; transition: all 0.2s; }
+        .btn-primary { background-color: var(--text-main); color: #fff; }
+        .btn-primary:hover { background-color: var(--primary); }
+        .btn-outline { border: 1px solid var(--border-color); color: var(--text-main); background-color: transparent; }
+        .btn-outline:hover { border-color: var(--text-main); }
+        .hero-image-wrapper { position: relative; }
+        .hero-image-wrapper img { width: 100%; height: 420px; object-fit: cover; border-radius: 16px; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
+        .image-caption { position: absolute; bottom: -20px; right: -20px; background: var(--card-bg); padding: 0.8rem 1.2rem; border-radius: 12px; font-size: 0.85rem; box-shadow: 0 10px 25px rgba(0,0,0,0.06); border: 1px solid var(--border-color); }
+        .intro-section { margin-bottom: 5rem; }
+        .intro-header { text-align: center; max-width: 600px; margin: 0 auto 3rem auto; }
+        .intro-header span { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--primary); font-weight: 600; }
+        .intro-header h2 { font-size: 2.2rem; margin-top: 0.5rem; margin-bottom: 0.8rem; }
+        .intro-header p { color: var(--text-muted); }
+        .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .card { background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 16px; padding: 2.2rem 1.8rem; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.05); }
+        .card-icon { font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; }
+        .card h3 { font-size: 1.4rem; margin-bottom: 0.8rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.5rem; flex: 1; }
+        .card a { text-decoration: none; color: var(--primary); font-weight: 600; font-size: 0.9rem; }
+        .card a:hover { text-decoration: underline; }
+        .footer-banner { background-color: #f2ece1; border-radius: 16px; padding: 3rem; text-align: center; margin-bottom: 3rem; }
+        .footer-banner h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+        .footer-banner p { color: var(--text-muted); }
+        footer { border-top: 1px solid var(--border-color); background-color: var(--bg-color); padding: 1.5rem 0; }
+        footer > div { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--text-muted); }
+        @media (max-width: 768px) { .hero, .cards-grid { grid-template-columns: 1fr; } header > div { flex-direction: column; gap: 1rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="index.html" class="logo">fragments <span>of life.</span></a>
+            <nav aria-label="Main navigation">
+                <a aria-current="page" href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="hometown.html">My Hometown</a>
+                <a href="hobbies.html">Interests</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <span>Welcome to my little corner</span>
+                <h1>Me, My Hometown <em>&amp; Hobbies </em></h1>
+                <p> Pieces of me, roots, and my favorite things. Welcome to a quiet little space where i share my journey and the simple joys of everyday life </wbr></p>
+                <div class="hero-buttons">
+                    <a href="about.html" class="btn btn-primary">Get to know me</a>
+                    <a href="hometown.html" class="btn btn-outline">Explore my hometown</a>
+                </div>
+            </div>
+            <div class="hero-image-wrapper">
+                <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1000&q=85" alt="Soft ocean waves">
+                <div class="image-caption">A story of me, my place &amp; my passions ✿</div>
+            </div>
+        </section>
+
+        <section class="intro-section">
+            <div class="intro-header">
+                <span>A quick introduction</span>
+                <h2>A Journey Through My Life</h2>
+                <p>We all have a story to hell. Take a look at three glimpses of mine, and pick a section below to dive right in.</p>
+            </div>
+            <div class="cards-grid">
+                <article class="card">
+                    <div class="card-icon">♡</div>
+                    <h3>About Me</h3>
+                    <p>A short introduction to my background, personality and the person I am becoming.</p>
+                    <a href="about.html">Read more →</a>
+                </article>
+                <article class="card">
+                    <div class="card-icon">⌖</div>
+                    <h3>My Hometown</h3>
+                    <p>Discover Kota Kinabalu, Sabah ,a coastal destination known for its islands and beautiful sunsets that make every evening feel magical
+                    <a href="hometown.html">Explore →</a>
+                </article>
+                <article class="card">
+                    <div class="card-icon">✧</div>
+                    <h3>My Interests</h3>
+                    <p>The activities I enjoy in my free time: singing, shopping, traveling and cycling .</p>
+                    <a href="hobbies.html">Discover →</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="footer-banner">
+            <h2>Life is a collection of little moments,beautiful,memories and endless opportunities to grow.</h2>
+            <p>Thank you for visiting my website. I hope you enjoy getting to know a little more about me!</p>
+        </section>
+    </main>
+
+    <footer>
+        <div>
+            <span>© 2026 Maysa cute Personal Website</span>
+            <span>Made with ♡ and a little creativity</span>
+        </div>
+    </footer>
+</body>
+</html>
